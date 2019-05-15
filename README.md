@@ -18,7 +18,7 @@ See:
 - First, install the build from npm:
 
 ```bash
-npm install --save @ckeditor/ckeditor5-classic
+npm install --save ckeditor5-classic
 ```
 - Second, Create `ckeditor.js`:
 ```javascript
@@ -26,7 +26,7 @@ npm install --save @ckeditor/ckeditor5-classic
 // ClasicEditor = require('@vantruong1810/ckeditor5-classic');
 
 // Using ES6 imports:
-import ClassicEditor from '@vantruong1810/ckeditor5-classic'
+import ClassicEditor from 'ckeditor5-classic'
 
 // Editor configuration.
 ClassicEditor.defaultConfig = {
@@ -117,3 +117,36 @@ import './ckeditor.js';
 // Or CJS imports:
 require('./ckeditor.js');
 ```
+## Clone & add plugins
+- Clone source:
+```bash
+git clone git@github.com:vantruong1810/ckeditor5-classic.git
+```
+- Install new plugins
+https://ckeditor.com/docs/ckeditor5/latest/features/index.html
+
+Eg markdown output plugin:
+```bash
+npm install --save @ckeditor/ckeditor5-markdown-gfm
+```
+- Go to `src/ckeditor.js` import new CKEditor plugin
+```javascript
+// ...
+import ClassicEditor from '@ckeditor/ckeditor5-editor-classic/src/classiceditor';
+// ...
+import GFMDataProcessor from '@ckeditor/ckeditor5-markdown-gfm/src/gfmdataprocessor';
+
+export default class ClassicEditor extends ClassicEditorBase { }
+
+// Plugins to include in the build.
+ClassicEditor.builtinPlugins = [
+    // ...
+    EasyImage,
+    GFMDataProcessor,       // <-- ADDED NEW
+    Heading,
+    // ...
+];
+```
+Run command: ```npm run build```
+
+- Add to toolbar from configuration (Eg: Into `ckeditor.js`)
