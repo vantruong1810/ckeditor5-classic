@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>CKEditor 5 – classic editor build – development sample</title>
+    <style>
+        body {
+            max-width: 800px;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>CKEditor 5 – classic editor build – development sample</h1>
+
+    <div id="editor">
+        <h2>Sample</h2>
+
+        <p>This is an instance of the <a
+                href="https://ckeditor.com/docs/ckeditor5/latest/builds/guides/overview.html#classic-editor">classic
+                editor build</a>.</p>
+
+        <figure class="image">
+            <img src="../tests/manual/sample.jpg" alt="Autumn fields" />
+        </figure>
+
+        <p>You can use this sample to validate whether your <a
+                href="https://ckeditor.com/docs/ckeditor5/latest/builds/guides/development/custom-builds.html">custom
+                build</a> works fine.</p>
+    </div>
+
+    <script src="../build/ckeditor.js"></script>
+    <script>
+        // Editor configuration.
+        ClassicEditor.defaultConfig = {
+            toolbar: {
+                items: [
+                    'heading',
+                    '|',
+                    'fontFamily',
+                    'fontSize',
+                    'alignment',
+                    'bold',
+                    'italic',
+                    'link',
+                    'bulletedList',
+                    'numberedList',
+                    'imageUpload',
+                    'ckFinder',
+                    'blockQuote',
+                    'insertTable',
+                    'mediaEmbed',
+                    'undo',
+                    'redo',
+                ]
+            },
+            image: {
+                toolbar: [
+                    'imageStyle:full',
+                    'imageStyle:side',
+                    '|',
+                    'imageTextAlternative'
+                ]
+            },
+            table: {
+                contentToolbar: [
+                    'tableColumn',
+                    'tableRow',
+                    'mergeTableCells'
+                ]
+            },
+            fontFamily: {
+                options: [
+                    'default',
+                    'Arial, Helvetica, sans-serif',
+                    'Courier New, Courier, monospace',
+                    'Georgia, serif',
+                    'Lucida Sans Unicode, Lucida Grande, sans-serif',
+                    'Tahoma, Geneva, sans-serif',
+                    'Times New Roman, Times, serif',
+                    'Trebuchet MS, Helvetica, sans-serif',
+                    'Verdana, Geneva, sans-serif'
+                ]
+            },
+            fontSize: {
+                options: [
+                    9,
+                    11,
+                    13,
+                    'default',
+                    17,
+                    19,
+                    21
+                ]
+            },
+            // This value must be kept in sync with the language defined in webpack.config.js.
+            language: 'en'
+        };
+
+        ClassicEditor
+            .create(document.querySelector('#editor'), {
+            })
+            .then(editor => {
+                window.editor = editor;
+            })
+            .catch(err => {
+                console.error(err.stack);
+            });
+    </script>
+
+</body>
+
+</html>
