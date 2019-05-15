@@ -1,9 +1,10 @@
 {
-  "name": "@ckeditor/ckeditor5-build-classic",
+  "name": "ckeditor5-classic",
   "version": "12.1.0",
-  "description": "The classic editor build of CKEditor 5 – the best browser-based rich text editor.",
+  "description": "The classic editor build of CKEditor 5 – Custom packages.",
   "keywords": [
     "ckeditor5-build",
+    "ckeditor5-classic",
     "ckeditor",
     "ckeditor5",
     "ckeditor 5",
@@ -62,13 +63,15 @@
     "node": ">=8.0.0",
     "npm": ">=5.7.1"
   },
-  "author": "CKSource (http://cksource.com/)",
-  "license": "GPL-2.0-or-later",
-  "homepage": "https://ckeditor.com/ckeditor-5",
-  "bugs": "https://github.com/ckeditor/ckeditor5-build-classic/issues",
+  "author": "Truong Nguyen",
+  "license": "None",
+  "homepage": "https://github.com/vantruong1810/ckeditor5-classic",
+  "bugs": {
+    "url": "https://github.com/vantruong1810/ckeditor5-classic/issues"
+  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ckeditor/ckeditor5-build-classic.git"
+    "url": "git+git@github.com:vantruong1810/ckeditor5-classic.git"
   },
   "scripts": {
     "build": "webpack --mode production",
@@ -88,5 +91,9 @@
     "hooks": {
       "pre-commit": "lint-staged"
     }
-  }
+  },
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {}
 }
